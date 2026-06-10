@@ -18,9 +18,15 @@ st.set_page_config(page_title="WM 2026 – Der unsichtbare Gegner", page_icon="�
 
 # ---------------------------------------------------------------- Daten laden
 @st.cache_data
-def load_csv(name):
-    df = pd.read_csv(DATA / name, encoding="utf-8-sig")
+def _read_csv(path, _mtime):
+    # _mtime ist Teil des Cache-Keys -> ändert sich die Datei, wird neu geladen
+    df = pd.read_csv(path, encoding="utf-8-sig")
     return df.loc[:, ~df.columns.str.startswith("Unnamed")]  # leere Spalte (End-Komma) weg
+
+
+def load_csv(name):
+    p = DATA / name
+    return _read_csv(str(p), p.stat().st_mtime)
 
 
 try:
