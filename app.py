@@ -71,7 +71,8 @@ k2.metric("Ø Reisedistanz", f"{d_dist['Total_Distance_KM'].mean():,.0f} km".rep
 top = d_dist.loc[d_dist["Total_Distance_KM"].idxmax()]
 k3.metric("Vielreiser", top["Team_Name"], f"{top['Total_Distance_KM']:,.0f} km".replace(",", "."))
 
-tab_karte, tab_hot, tab_rang = st.tabs(["🗺️ Reiselinien", "📍 Quartiere & Hotspots", "📊 Ranking"])
+tab_karte, tab_hot, tab_rang, tab_eff = st.tabs(
+    ["🗺️ Reiselinien", "📍 Quartiere & Hotspots", "📊 Ranking", "🎯 Effizienz"])
 
 
 # ---------------------------------------------------------------- Tab: Reiselinien
@@ -133,3 +134,25 @@ with tab_rang:
     st.caption("Total_Distance_KM = Sternmodell (mit Quartier) · Chain_Distance_KM = naive Stadion-Kette.")
     st.dataframe(rang.sort_values("Total_Distance_KM", ascending=False),
                  hide_index=True, width="stretch")
+
+
+# ---------------------------------------------------------------- Tab: Effizienz
+with tab_eff:
+    st.subheader("Glück vs. Planung – wie clever ist die Quartierwahl?")
+    e1, e2 = st.columns(2)
+    worst = d_dist.loc[d_dist["Vermeidbar_KM"].idxmax()]
+    e1.metric("Meiste vermeidbare km", worst["Team_Name"],
+              f"{worst['Vermeidbar_KM']:,.0f} km".replace(",", "."))
+    e2.metric("Ø Effizienz", f"{d_dist['Effizienz_Prozent'].mean():.0f} %")
+
+    eff = d_dist.sort_values("Total_Distance_KM", ascending=True)  # größter Balken oben
+    st.bar_chart(eff.set_index("Team_Name")[["Optimal_KM", "Vermeidbar_KM"]],
+                 horizontal=True, stack=True, height=max(400, len(eff) * 34),
+                 color=["#4C9F70", "#E4572E"])
+    st.caption("Pro Team gestapelt: **Optimal_KM** (grün, unvermeidbar – von der Auslosung diktiert) "
+               "+ **Vermeidbar_KM** (rot, Planungs-Anteil durch die Quartierwahl). Summe = Gesamtdistanz.")
+
+    tabelle = d_dist.sort_values("Vermeidbar_KM", ascending=False)[
+        ["Team_Name", "BaseCamp_City", "Total_Distance_KM", "Optimal_KM",
+         "Vermeidbar_KM", "Effizienz_Prozent", "Bestes_Quartier"]]
+    st.dataframe(tabelle, hide_index=True, width="stretch")
