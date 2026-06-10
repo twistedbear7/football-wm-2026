@@ -1,4 +1,4 @@
-Team,BaseCamp_City,Latitude,Longitude,
+﻿Team,BaseCamp_City,Latitude,Longitude
 Algerien,Kansas City,39.10011,-94.57814
 Argentinien,Kansas City,39.10011,-94.57814
 Australien,San Francisco,37.78794,-122.40752
@@ -8,10 +8,10 @@ Bosnien und Herzegowina,Sandy,40.57105,-111.89538
 Brasilien,New York,40.71273,-74.00602
 Kanada,Vancouver,49.26087,-123.11395
 Elfenbeinküste,Philadelphia,39.95272,-75.16353
-Kongo,Houston,29.75894,-95.36770
-Kolumbien,Guadalajara,20.67204,-103.33840
+Kongo,Houston,29.75894,-95.3677
+Kolumbien,Guadalajara,20.67204,-103.3384
 Kap Verde,Tampa,27.94499,-82.45831
-Curacao,Boca Raton,26.35869,-80.08310
+Curacao,Boca Raton,26.35869,-80.0831
 Tschechien,Dallas,32.77627,-96.79686
 Ecuador,Columbus,39.96226,-83.00071
 Ägypten,Spokane,47.65719,-117.42351
@@ -23,9 +23,9 @@ Ghana,Boston,42.35883,-71.05783
 Haiti,New York,40.71273,-74.00602
 Iran,Tijuana,32.53174,-117.01953
 Jordanien,Portland,45.52025,-122.67419
-Japan,Nashville,36.16228,-86.77430
-Südkorea,Guadalajara,20.67204,-103.33840
-Saudi-Arabien,Austin,30.27113,-97.74370
+Japan,Nashville,36.16228,-86.7743
+Südkorea,Guadalajara,20.67204,-103.3384
+Saudi-Arabien,Austin,30.27113,-97.7437
 Marokko,New York,40.71273,-74.00602
 Mexiko,Mexico City,19.32077,-99.15147
 Niederlande,Kansas City,39.10011,-94.57814
@@ -39,10 +39,10 @@ Schottland,Charlotte,35.22721,-80.84308
 Senegal,New York,40.71273,-74.00602
 Schweiz,San Diego,32.71742,-117.16277
 Schweden,Dallas,32.77627,-96.79686
-Tunesien,Monterrey,25.68020,-100.31526
-Türkei,Mesa,33.41510,-111.83145
+Tunesien,Monterrey,25.6802,-100.31526
+Türkei,Mesa,33.4151,-111.83145
 Uruguay,Cancun,21.15275,-86.84258
-USA,Irvine,33.68570,-117.82598
+USA,Irvine,33.6857,-117.82598
 Usbekistan,Atlanta,33.75447,-84.38982
 Irak,Greenbrier County,37.80409,-80.46134
 Kroatien,Alexandria,38.80511,-77.04702

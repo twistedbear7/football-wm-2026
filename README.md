@@ -13,6 +13,9 @@ beeinflussen. Datenaufbereitung in Python (pandas), Visualisierung in Tableau.
 - Welche Teams legen die größten Reisedistanzen zurück?
 - Wie stark belasten Zeitzonenwechsel die einzelnen Mannschaften?
 - Wo liegen die Quartiere – gibt es geografische „Hot Spots"?
+- **Glück vs. Planung:** Wie viel Reisedistanz ist von der Auslosung diktiert
+  (`Optimal_KM`) und wie viel selbst verschuldet durch die Quartierwahl
+  (`Vermeidbar_KM`)? → „Cleverness-Ranking" über `Effizienz_Prozent`.
 - Gibt es einen Zusammenhang zwischen Reisebelastung und sportlichem Erfolg?
 
 ## 📁 Projektstruktur
@@ -73,6 +76,10 @@ Team-Standorte und Hot-Spot-Karte.
 | `Total_Distance_KM` | Hauptmetrik – Reisedistanz im Sternmodell |
 | `Chain_Distance_KM` | Vergleich: naive Stadion→Stadion-Kette ohne Quartier |
 | `Longest_Trip_KM` | weiteste einzelne Anreise (Quartier → Spielort) |
+| `Optimal_KM` | Distanz beim **bestmöglichen** Base Camp (Minimum über 16 Host-Städte + eigenes Quartier) – der unvermeidbare, von der Auslosung diktierte Anteil |
+| `Vermeidbar_KM` | `Total − Optimal` – der **Planungs-Anteil** durch die Standortwahl |
+| `Effizienz_Prozent` | `Optimal / Total` in % – „Cleverness" der Quartierwahl (100 % = optimal platziert) |
+| `Bestes_Quartier` | Stadt, in der das Optimum läge |
 | `Timezone_Shift_Total_H` | Summe der Zeitzonendifferenzen ggü. Quartier |
 | `Max_Timezone_Diff_H` | größte einzelne Zeitzonendifferenz |
 | `Avg_Days_Between_Games` | durchschnittliche Erholungszeit zwischen Spielen |
